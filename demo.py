@@ -21,13 +21,13 @@ projection_dim = 2560
 hidden_dim = 5120
 feature_dim = clip_model.visual.output_dim
 combiner = Combiner(feature_dim, projection_dim, hidden_dim)
-combiner_state_dict = torch.load(r'D:\Specialization\Project\Clip4Cir\FashionIQ\RN50x4_fullft\fiq_comb_RN50x4_fullft.pt', map_location=torch.device('cpu'))
+combiner_state_dict = torch.load('fiq_comb_RN50x4_fullft.pt', map_location=torch.device('cpu'))
 combiner.load_state_dict(combiner_state_dict['Combiner'])
 combiner.eval()
 combining_function = combiner.combine_features
 
-FEATURE_PATH = r'C:\Users\CPS125\OneDrive\Documents\Dataset\fashionIQ_dataset\demo_feature_2'
-IMAGE_PATH = r'C:\Users\CPS125\OneDrive\Documents\Dataset\fashionIQ_dataset\images'
+FEATURE_PATH = 'demo_feature'
+IMAGE_PATH = 'Dataset\fashionIQ_dataset\images'
 
 def load_names(dress_type):
     with open(f'{FEATURE_PATH}\\{dress_type}_val_index_names.pkl', 'rb') as f:
