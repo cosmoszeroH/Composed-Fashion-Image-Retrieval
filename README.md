@@ -2,25 +2,25 @@
 
 In this repo, I post a simple demo to retrieve fashion image from a reference query and a text that includes a descriptive request from the user about the image.
 
-The project folder must be like this:
-project_base_path
-└─── Dataset
-     └───  fashionIQ_dataset
-          └─── captions
-                | cap.dress.test.json
-                ...
-                | cap.toptee.val.json
-          └─── image_splits
-                | split.dress.test.json
-                ...
-                | split.toptee.val.json
-          └─── images
-                | 245600258X.jpg
-                ...
-└─── demo_feature
-└─── src
-| demo.py
-| extract_features.py
+The project folder is organized as follows:
+Project Base Path
+├── Dataset
+│   ├── fashionIQ_dataset
+│   │   ├── captions
+│   │   │   ├── cap.dress.test.json
+│   │   │   ├── ...
+│   │   │   └── cap.toptee.val.json
+│   │   ├── image_splits
+│   │   │   ├── split.dress.test.json
+│   │   │   ├── ...
+│   │   │   └── split.toptee.val.json
+│   │   ├── images
+│   │   │   ├── 245600258X.jpg
+│   │   │   ├── ...
+├── demo_feature
+├── src
+│   ├── demo.py
+│   ├── extract_features.py
 
 First, you have to have FashionIQ dataset in fashionIQ_dataset and have all the path like above
 
