@@ -49,7 +49,7 @@ def extract_and_save_index_features(dataset: Union[CIRRDataset, FashionIQDataset
             index_names.extend(names)
 
     # save the extracted features
-    data_path = r'C:\Users\CPS125\OneDrive\Documents\Dataset\fashionIQ_dataset\demo_feature_2'
+    data_path = 'demo_feature'
     torch.save(index_features, f"{data_path}\\{file_name}_index_features.pt")
     with open(f'{data_path}\\{file_name}_index_names.pkl', 'wb+') as f:
         pickle.dump(index_names, f)
@@ -60,14 +60,11 @@ def main():
     input_dim = clip_model.visual.input_resolution
     preprocess = targetpad_transform(1.25, input_dim)
     feature_dim = clip_model.visual.output_dim
-    # clip_state_dict = torch.load(r'D:\Specialization\Project\Clip4Cir\FashionIQ\RN50x4_fullft\fiq_clip_RN50x4_fullft.pt', map_location=torch.device('cpu'))
-    # clip_model.load_state_dict(clip_state_dict["CLIP"])
 
-    dress_type = 'toptee'
-    set_type = 'test'
-    classic_dataset = FashionIQDataset(set_type, [dress_type], 'classic', preprocess)
-    extract_and_save_index_features(classic_dataset, clip_model, feature_dim, f'{dress_type}_{set_type}')
-
+    for dress_type in ['dress', 'shirt', 'toptee']:
+        for set_type in ['val', 'test']
+            classic_dataset = FashionIQDataset(set_type, [dress_type], 'classic', preprocess)
+            extract_and_save_index_features(classic_dataset, clip_model, feature_dim, f'{dress_type}_{set_type}')
 
 if __name__ == '__main__':
     torch.multiprocessing.freeze_support()
