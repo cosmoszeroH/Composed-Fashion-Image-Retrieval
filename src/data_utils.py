@@ -8,7 +8,7 @@ import torchvision.transforms.functional as F
 from torch.utils.data import Dataset
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
 
-base_path = r'C:\Users\CPS125\OneDrive\Documents\Dataset'
+base_path = 'Dataset'
 
 
 def _convert_image_to_rgb(image):
